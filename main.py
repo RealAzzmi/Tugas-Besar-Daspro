@@ -3,7 +3,7 @@ import database
 import fungsi.f01_login, fungsi.f02_logout
 import fungsi.f03_summonjin, fungsi.f04_hapusjin, fungsi.f05_ubahjin
 import fungsi.f06_bangun
-import fungsi.f15_help
+import fungsi.f13_load, fungsi.f14_save, fungsi.f15_help, fungsi.f16_exit
 
 def main():
     database.load()
@@ -24,8 +24,14 @@ def main():
             fungsi.f05_ubahjin.run()
         elif command == "bangun":
             fungsi.f06_bangun.run()
+        elif command == "load":
+            fungsi.f13_load.run()
+        elif command == "save":
+            fungsi.f14_save.run()
         elif command == "help":
             fungsi.f15_help.run()
+        elif command == "exit":
+            fungsi.f16_exit.run()
 
         elif command == "melihat": # Untuk debugging saja; nanti dihapus
             print(f"Total user: {database.user_count}")

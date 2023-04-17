@@ -5,7 +5,7 @@ def run():
     if variabel.login == True:
         print(f"Login gagal!\nAnda telah login dengan username {variabel.username}, silahkan lakukan \"logout\" sebelum melakukan login kembali.")
     else:
-        username = input("Username APA: ")
+        username = input("Username: ")
         password = input("Password: ")
 
         is_exist, user = database.is_user_exist(username)

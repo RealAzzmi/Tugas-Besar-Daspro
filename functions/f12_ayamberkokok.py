@@ -6,7 +6,7 @@ def run():
     if variables.login == False:
         print("Anda belum login")
     elif variables.role != "roro_jonggrang":
-        print("Anda tidak mempunyai akses; hanya roro jonggrang yang memiliki kemampuan ini")
+        print("Anda tidak mempunyai akses; hanya Roro Jonggrang yang memiliki kemampuan ini.")
     elif database.candi.candi_list.size < MAX_CANDI:
         print(f"""Kukuruyuk.. Kukuruyuk..
 
@@ -16,7 +16,7 @@ Selamat, Roro Jonggrang memenangkan permainan!
 
 *Bandung Bondowoso angry noise*
 Roro Jonggrang dikutuk menjadi candi.""")
-    elif database.candi.candi_list.size == MAX_CANDI:
+    elif database.candi.candi_list.size >= MAX_CANDI:
         print(f"""Kukuruyuk.. Kukuruyuk..
 
 Jumlah Candi: {database.candi.candi_list.size}

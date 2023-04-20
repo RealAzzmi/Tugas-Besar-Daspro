@@ -8,7 +8,7 @@ def run():
     elif variables.role != "roro_jonggrang":
         print("Anda tidak mempunyai akses; hanya roro jonggrang yang memiliki kemampuan ini")
     elif database.candi.candi_list.size < MAX_CANDI:
-        print("""Kukuruyuk.. Kukuruyuk..
+        print(f"""Kukuruyuk.. Kukuruyuk..
 
 Jumlah Candi: {database.candi.candi_list.size}
 

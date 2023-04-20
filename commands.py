@@ -10,6 +10,7 @@ import functions.f07_kumpul
 import functions.f08_batchbangun
 import functions.f08_batchkumpul
 
+import functions.f12_ayamberkokok
 import functions.f13_load
 import functions.f14_save
 import functions.f15_help
@@ -38,7 +39,8 @@ def run(command):
     elif command == "batchkumpul":
         functions.f08_batchkumpul.run()
 
-
+    elif command == "ayamberkokok":
+        functions.f12_ayamberkokok.run()
     elif command == "save":
         functions.f14_save.run()
     elif command == "help":

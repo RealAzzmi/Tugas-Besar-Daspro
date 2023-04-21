@@ -1,6 +1,7 @@
 import variables
 import database.candi
 from constants import MAX_CANDI
+import sys
 
 def run():
     if variables.login == False:
@@ -22,3 +23,4 @@ Roro Jonggrang dikutuk menjadi candi.""")
 Jumlah Candi: {database.candi.candi_list.size}
 
 Yah, Bandung Bondowoso memenangkan permainan!""")
+    sys.exit()

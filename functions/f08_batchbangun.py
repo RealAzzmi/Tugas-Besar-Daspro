@@ -52,6 +52,7 @@ def run():
         idx = 0
         for i in range(database.user.user_list.size):
             if database.candi.candi_list.size == MAX_CANDI:
+                print("Sebagian candi yang terbangun tidak akan tercatat karena melebihi jumlah maksimum candi.")
                 break
             if database.user.user_list.array[i].role == "jin_pembangun":
                 database.candi.add_candi(database.candi.smallest_unavailable_id(), database.user.user_list.array[i].username, new_candi[idx][0], new_candi[idx][1], new_candi[idx][2])

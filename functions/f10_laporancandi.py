@@ -1,52 +1,47 @@
 import database.user, database.bahan_bangunan, database.candi
 import variables
-import random
-from constants import MAX_CANDI
+
 
 def run():
-    if variables.login = False:
+    if variables.login == False:
         print("Anda belum login.")
     elif variables.role != "bandung_bondowoso" :
         print("Anda tidak mempunyai akses; hanya Bandung Bondowoso yang bisa \"ambil laporan candi\".")
     else:
-        total_candi = 0
-        total_pasir = 0
-        total_batu = 0
-        total_air = 0
-        id_candi_termahal = 0
-        harga_candi_termahal = 0
-        id_candi_termurah = 0
-        harga_candi_termurah = 0
-
-        # Cek semua candi
-        for i in range(database.candi, MAX_CANDI):
-            if database.candi [i][1] is not None:
-                pasir = database.candi[i][2]
-                batu = database.candi[i][3]
-                air = database.candi[i][4]
-
-                total_pasir += pasir
-                total_batu += batu
-                total_air += air
-                total_candi += 1
-
-                harga_candi = 10000 * pasir + 15000* batu + 7500 * air
-
-                if harga_candi > harga_candi_termahal:
-                    id_candi_termahal = database.candi[i][0]
-                    harga_candi_termahal = harga_candi
-                if harga_candi < harga_candi_termurah:
-                    id_candi_termurah = database.candi[i][0]
-                    harga_candi_termurah = harga_candi
+        if database.candi.candi_list.size == 0:
+            print()
+            print("""> Total Candi: 0
+> Total Pasir yang digunakan: 0
+> Total Batu yang digunakan: 0
+> Total Air yang digunakan: 0
+> ID Candi Termahal: -
+> ID Candi Termurah: -""")
+            return
+        total_sand = 0
+        total_stone = 0
+        total_water = 0
+        
+        cheapest_candi_id = 0
+        cheapest_candi_price = database.candi.candi_price(database.candi.candi_list.array[0])
+        most_expensive_candi_id = 0
+        most_expensive_candi_price = database.candi.candi_price(database.candi.candi_list.array[0])
+        
+        for i in range(database.candi.candi_list.size):
+            total_sand += database.candi.candi_list.array[i].sand
+            total_stone += database.candi.candi_list.array[i].stone
+            total_water += database.candi.candi_list.array[i].water
+            price = database.candi.candi_price(database.candi.candi_list.array[i])
+            if price < cheapest_candi_price:
+                cheapest_candi_id = i
+                cheapest_candi_price = price
+            if price > most_expensive_candi_price:
+                most_expensive_candi_id = i
+                most_expensive_candi_price = price
+            
         print()
-        print(f"Total Candi: {total_candi}")
-        print(f"Total Pasir yang digunakan: {total_pasir}")
-        print(f"Total Batu yang digunakan: {total_batu}")
-        print(f"Total Air yang digunakan: {total_air}")
-
-        if total_candi == 0:
-            print(f"ID Candi Termahal: -")
-            print(f"ID Candi Termurah: -")
-        else:
-            print(f"ID Candi Termahal: {id_candi_termahal} (Rp {harga_candi_termahal})")
-            print(f"ID Candi Termurah: {id_candi_termurah} (Rp {harga_candi_termurah})")
+        print(f"""> Total Candi: {database.candi.candi_list.size}
+> Total Pasir yang digunakan: {total_sand}
+> Total Batu yang digunakan: {total_stone}
+> Total Air yang digunakan: {total_water}
+> ID Candi Termahal: {most_expensive_candi_id} ({most_expensive_candi_price})
+> ID Candi Termurah: {cheapest_candi_id} ({cheapest_candi_price})""")

@@ -1,5 +1,6 @@
 from algorithms.string_processing import split, strip
 from data_structures.dynamic_array import DynamicArray, append_array, erase_array
+from constants import SAND_PRICE, STONE_PRICE, WATER_PRICE
 import os
 import variables
 
@@ -37,13 +38,22 @@ def save(location):
             file.write(f"{candi_list.array[i].id};{candi_list.array[i].builder};{candi_list.array[i].sand};{candi_list.array[i].stone};{candi_list.array[i].water}\n")
 
 
-
 def candi_equality_by_builder(candi1, candi2):
     return candi1.builder == candi2.builder
+
+def candi_equality_by_id(candi1, candi2):
+    return candi1.id == candi2.id
 
 def add_candi(id, builder, sand, stone, water):
     global candi_list
     append_array(candi_list, Candi(id, builder, sand, stone, water))
+
+def is_candi_exist(id):
+    for i in range(candi_list.size):
+        if candi_list.array[i].id == id:
+            return True, candi_list.array[i]
+    return False, Candi()
+
 
 def smallest_unavailable_id():
     id = 0
@@ -69,3 +79,11 @@ def erase_candi_by_builder(username):
     global candi_list
     for i in range(candi_count(username)):
         erase_array(candi_list, Candi(None, username, None, None, None), candi_equality_by_builder)
+
+def erase_candi_by_id(id):
+    global candi_list
+    erase_array(candi_list, Candi(id, None, None, None, None), candi_equality_by_id)
+
+
+def candi_price(candi):
+    return SAND_PRICE * candi.sand + STONE_PRICE * candi.stone + WATER_PRICE * candi.water

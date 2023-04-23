@@ -4,7 +4,6 @@ from algorithms.string_processing import strip
 
 
 def main():
-    
     commands.load()
 
     database.user.load()

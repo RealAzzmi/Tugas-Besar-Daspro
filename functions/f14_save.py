@@ -6,7 +6,6 @@ from algorithms.string_processing import split, count_letters
 def run():
     folder_name = input("\nMasukkan nama folder (Gunakan file seperator yang sesuai; \\ untuk Windows dan / untuk macOS dan Linux): ")
     folder_location = os.path.relpath(os.path.join(PARENT_FOLDER, folder_name))
-    print("Folder location", folder_location)
     print("\nSaving...\n")
     folder_components = split(folder_location, os.sep)
     temp = ''

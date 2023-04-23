@@ -1,42 +1,22 @@
 import database.user, database.bahan_bangunan, database.candi
 import variables
-import random
-from constants import MAX_CANDI
 
 def run():
-    if variables.login = False:
+    if variables.login == False:
         print("Anda belum login.")
     elif variables.role != "roro_jonggrang" :
         print("Anda tidak mempunyai akses; hanya Roro Jonggrang yang bisa \"menghancurkan candi\".")
     else:
         id_candi = int(input("Masukkan ID candi: "))
-        candi_ditemukan = False
-    
-    # Cari id candi
-    for i in range(database.candi, MAX_CANDI):
-        if database.candi[i][0] == id_candi:
-            if database.candi[i][1] is not None:
-                candi_ditemukan = True
-                confirm = ""
-
-                # konfirmasi
-                while confirm.lower() != "y" and confirm.lower != "n":
-                    confirm = input(f"Apakah anda yakin ingin menghancurkan candi ID: {id_candi} (Y/N) ")
-
-                print()
-
-                if confirm.lower() == "y":
-                        # hapus candi
-                        data_candi = hapus_candi (i, data_candi)
-                        print("Candi telah berhasil dihancurkan.")
-
-                    else:
-                        print("Candi tidak berhasil dihancurkan.")
-
-                break
-
-        if not candi_ditemukan:
-            print()
+        is_exist, candi = database.candi.is_candi_exist(id_candi)
+        if not is_exist:
             print("Tidak ada candi dengan ID tersebut.")
-
-    return data_candi 
+            return
+        confirmation = input(f"Apakah anda yakin ingin menghancurkan candi ID: {id_candi} (Y/N)? ")
+        while not(confirmation == 'n' or confirmation == 'N' or confirmation == 'y' or confirmation == 'Y'):
+            confirmation = input(f"Apakah anda yakin ingin menghancurkan candi ID: {id_candi} (Y/y/N/n)? ")
+        if confirmation == 'y' or confirmation == 'Y':
+            database.candi.erase_candi_by_id(id_candi)
+            print("Candi berhasil dihapus.")
+        else:
+            print("Candi tidak jadi dihapus.")

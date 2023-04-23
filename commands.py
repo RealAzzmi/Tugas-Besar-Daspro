@@ -9,7 +9,9 @@ import functions.f06_bangun
 import functions.f07_kumpul
 import functions.f08_batchbangun
 import functions.f08_batchkumpul
-
+import functions.f09_laporanjin
+import functions.f10_laporancandi
+import functions.f11_hancurkancandi
 import functions.f12_ayamberkokok
 import functions.f13_load
 import functions.f14_save
@@ -38,7 +40,12 @@ def run(command):
         functions.f08_batchbangun.run()
     elif command == "batchkumpul":
         functions.f08_batchkumpul.run()
-
+    elif command == "laporanjin":
+        functions.f09_laporanjin.run()
+    elif command == "laporancandi":
+        functions.f10_laporancandi.run()
+    elif command == "hancurkancandi":
+        functions.f11_hancurkancandi.run()
     elif command == "ayamberkokok":
         functions.f12_ayamberkokok.run()
     elif command == "save":

@@ -15,6 +15,7 @@ def run():
         if jin_pembangun_count == 0:
             print("Bangun gagal. Anda tidak punya jin pembangun. Silakan summon terlebih dahulu.")
             return
+
         new_candi = [None for i in range(jin_pembangun_count)]
         total_sand = 0
         total_stone = 0
@@ -50,6 +51,8 @@ def run():
         print(f"Jin berhasil membangun {jin_pembangun_count} candi.")
         idx = 0
         for i in range(database.user.user_list.size):
+            if database.candi.candi_list.size == MAX_CANDI:
+                break
             if database.user.user_list.array[i].role == "jin_pembangun":
                 database.candi.add_candi(database.candi.smallest_unavailable_id(), database.user.user_list.array[i].username, new_candi[idx][0], new_candi[idx][1], new_candi[idx][2])
                 idx += 1

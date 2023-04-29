@@ -4,12 +4,16 @@ from algorithms.string_processing import strip
 
 
 def main():
+    # Load ini menerima lokasi folder tempat penyimpanan file csv dan mengecek apakah folder eksis.
     commands.load()
 
+    # Masing-masing file csv diload.
     database.user.load()
     database.bahan_bangunan.load()
     database.candi.load()
 
+    # Loop ini menerima command dan akan berhenti ketika fungsi yang dijalankan di commands.run(command)
+    # memanggil sys.exit().
     while True:
         command = input(">>> ")
         command = strip(command)

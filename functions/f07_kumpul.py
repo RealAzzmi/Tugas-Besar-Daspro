@@ -1,6 +1,6 @@
 import variables
 import database.user, database.bahan_bangunan
-from constants import MAX_CANDI, MIN_RAND, MAX_RAND
+from constants import MIN_RAND, MAX_RAND
 import random
 
 def run():

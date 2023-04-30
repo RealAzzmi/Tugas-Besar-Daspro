@@ -2,12 +2,13 @@ import variables
 
 def run():
     print("=========== HELP ===========")
-    if variables.login == False:
+    # Mengecek apakah sudah login
+    if variables.login == False: # Output untuk kondisi belum login
         print("""1. login
    Untuk masuk menggunakan akun
 2. exit
    Untuk keluar dari program dan kembali ke terminal""")
-    elif variables.role == "bandung_bondowoso":
+    elif variables.role == "bandung_bondowoso": # Output untuk kondisi login sebagai Bandung Bondowoso
         print("""1. logout
    Untuk keluar dari akun yang digunakan sekarang
 2. summonjin
@@ -24,19 +25,19 @@ def run():
    Untuk mengambil laporan kinerja para jin
 8. laporancandi
    Untuk mengambil laporan progress pembangunan candi""")
-    elif variables.role == "roro_jonggrang":
+    elif variables.role == "roro_jonggrang": # Output untuk kondisi login sebagai Roro Jonggrang
         print("""1. logout
    Untuk keluar dari akun yang digunakan sekarang
 2. hancurkancandi
    Untuk menghancurkan candi yang tersedia
 3. ayamberkokok
    Untuk menyelesaikan permainan dengan memalsukan pagi hari""")
-    elif variables.role == "jin_pengumpul":
+    elif variables.role == "jin_pengumpul": # Output untuk kondisi login sebagai Jin Pengumpul
         print("""1. logout
    Untuk keluar dari akun yang digunakan sekarang
 2. kumpul
    Untuk mengumpulkan resource candi""")
-    elif variables.role == "jin_pembangun":
+    elif variables.role == "jin_pembangun": # Output untuk kondisi login sebagai Jin Pembangun
         print("""1. logout
    Untuk keluar dari akun yang digunakan sekarang
 2. bangun

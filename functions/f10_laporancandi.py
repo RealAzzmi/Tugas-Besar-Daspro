@@ -3,11 +3,14 @@ import variables
 
 
 def run():
+    # Mengecek apakah sudah login.
     if variables.login == False:
         print("Anda belum login.")
+    # Mengecek apakah rolenya adalah Bandung Bondowoso.
     elif variables.role != "bandung_bondowoso" :
         print("Anda tidak mempunyai akses; hanya Bandung Bondowoso yang bisa \"ambil laporan candi\".")
     else:
+        # Menghitung jumlah candi, bahan yang digunakan, candii termahal dan termurah.
         if database.candi.candi_list.size == 0:
             print()
             print("""> Total Candi: 0
@@ -25,7 +28,8 @@ def run():
         cheapest_candi_price = database.candi.candi_price(database.candi.candi_list.array[0])
         most_expensive_candi_id = 0
         most_expensive_candi_price = database.candi.candi_price(database.candi.candi_list.array[0])
-        
+
+        # Menentukan total candi, bahan yang digunakan, ID candi termahal dan termurah.
         for i in range(database.candi.candi_list.size):
             total_sand += database.candi.candi_list.array[i].sand
             total_stone += database.candi.candi_list.array[i].stone

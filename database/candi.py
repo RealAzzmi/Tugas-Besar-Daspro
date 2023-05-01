@@ -33,7 +33,7 @@ def load():
         file.readline()
         for i in range(candi_count):
             id, builder, sand, stone, water = split(strip(file.readline()), ';')
-            append_array(candi_list, Candi(id, builder, sand, stone, water))
+            append_array(candi_list, Candi(int(id), builder, int(sand), int(stone), int(water)))
 
 # Melakukan penyimpanan.
 def save(location):

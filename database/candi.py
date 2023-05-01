@@ -17,8 +17,9 @@ class Candi:
         self.stone = stone
         self.water = water
 
-    def __repr__(self):
-        return f"[{self.id} & {self.builder} & {self.sand} & {self.stone} & {self.water}]"
+    # # Untuk debugging saja
+    # def __repr__(self):
+    #     return f"[{self.id} & {self.builder} & {self.sand} & {self.stone} & {self.water}]"
 
 def load():
     global candi_list

@@ -15,8 +15,9 @@ class User:
         self.password = password
         self.role = role
 
-    def __repr__(self):
-        return f"[{self.username} & {self.password} & {self.role}]"
+    # # Untuk debugging saja
+    # def __repr__(self):
+    #     return f"[{self.username} & {self.password} & {self.role}]"
 
 def load():
     global user_list

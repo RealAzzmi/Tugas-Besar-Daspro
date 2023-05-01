@@ -55,17 +55,18 @@ def run(command):
     elif command == "exit":
         functions.f16_exit.run()
     
-    elif command == "melihat":
-        print("\nUser:")
-        for i in range(database.user.user_list.size):
-            print(database.user.user_list.array[i])
-        print("\n\nBahan bangunan:")
-        print(f"[sand, stone, water] = [{database.bahan_bangunan.bahan_list.sand}, {database.bahan_bangunan.bahan_list.stone}, {database.bahan_bangunan.bahan_list.water}]")
-        print(f"deskripsi pasir: {database.bahan_bangunan.sand_description}")
-        print(f"deskripsi batu: {database.bahan_bangunan.stone_description}")
-        print(f"deskripsi air: {database.bahan_bangunan.water_description}")
-        print("\n\nCandi:")
-        for i in range(database.candi.candi_list.size):
-            print(database.candi.candi_list.array[i])
+    # # Untuk debugging saja.
+    # elif command == "melihat":
+    #     print("\nUser:")
+    #     for i in range(database.user.user_list.size):
+    #         print(database.user.user_list.array[i])
+    #     print("\n\nBahan bangunan:")
+    #     print(f"[sand, stone, water] = [{database.bahan_bangunan.bahan_list.sand}, {database.bahan_bangunan.bahan_list.stone}, {database.bahan_bangunan.bahan_list.water}]")
+    #     print(f"deskripsi pasir: {database.bahan_bangunan.sand_description}")
+    #     print(f"deskripsi batu: {database.bahan_bangunan.stone_description}")
+    #     print(f"deskripsi air: {database.bahan_bangunan.water_description}")
+    #     print("\n\nCandi:")
+    #     for i in range(database.candi.candi_list.size):
+    #         print(database.candi.candi_list.array[i])
     else:
         print("Command tidak valid.")
